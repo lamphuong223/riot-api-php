@@ -8,12 +8,6 @@ A simple PHP wrapper for [League of legends API](https://developer.riotgames.com
 
 ### How to Install
 
-Install composer in your project:
-
-```
-curl -s https://getcomposer.org/installer | php
-```
-
 Require the package with composer:
 
 ```
