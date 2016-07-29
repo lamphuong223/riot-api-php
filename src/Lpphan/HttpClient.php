@@ -9,8 +9,8 @@ use GuzzleHttp\Client;
  *
  * @author lamphuong
  */
-class HttpClient implements ClientInterface {
-
+class HttpClient implements ClientInterface
+{
     /**
      *
      * @var Client
@@ -21,12 +21,13 @@ class HttpClient implements ClientInterface {
      * 
      * @param string $url
      */
-    public function get($url) {
+    public function get($url)
+    {
         return $this->guzzle->get($url);
     }
 
-    public function setBaseUrl($baseUrl) {
+    public function setBaseUrl($baseUrl)
+    {
         $this->guzzle = new Client(['base_uri' => $baseUrl]);
     }
-
 }

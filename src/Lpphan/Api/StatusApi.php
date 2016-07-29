@@ -7,19 +7,22 @@ namespace Lpphan\Api;
  *
  * @author lamphuong
  */
-class StatusApi extends AbstractApi{
-    
+class StatusApi extends AbstractApi
+{
     protected $url = 'http://status.leagueoflegends.com/';
-    
-    protected function getBaseUrlWithRegion() {
+
+    protected function getBaseUrlWithRegion()
+    {
         return $this->url;
     }
-    
-    public function getShardList(){
+
+    public function getShardList()
+    {
         return $this->makeRequest('shards');
     }
-    
-    public function getShardStatus($shard){
+
+    public function getShardStatus($shard)
+    {
         $path = "shards/$shard";
         return $this->makeRequest($path);
     }

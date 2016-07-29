@@ -7,22 +7,24 @@ namespace Lpphan\Api;
  *
  * @author lamphuong
  */
-class CurrentGameApi extends AbstractApi{
-    
+class CurrentGameApi extends AbstractApi
+{
     protected $version = 'v1.0';
-    
     private $url = 'https://%s.api.pvp.net/observer-mode/rest/';
-    
-    protected function getBaseUrlWithRegion() {
-        return sprintf($this->url,  $this->lolApi->getRegion());
+
+    protected function getBaseUrlWithRegion()
+    {
+        return sprintf($this->url, $this->lolApi->getRegion());
     }
-    
-    public function getCurrentGame($summonerId){
+
+    public function getCurrentGame($summonerId)
+    {
         $path = "consumer/getSpectatorGameInfo/".\Lpphan\RiotApi::$platformIds[$this->lolApi->getRegion()]."/{$summonerId}";
         return $this->makeRequest($path);
     }
-    
-    public function getFeaturedGame(){
+
+    public function getFeaturedGame()
+    {
         return $this->makeRequest('featured');
     }
 }

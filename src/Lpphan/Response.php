@@ -7,8 +7,8 @@ namespace Lpphan;
  *
  * @author lamphuong
  */
-class Response {
-
+class Response
+{
     /**
      *
      * @var mixed Reponse body
@@ -33,46 +33,54 @@ class Response {
      */
     protected $cache;
 
-    public function __construct(CacheInterface $cache) {
+    public function __construct(CacheInterface $cache)
+    {
         $this->cache = $cache;
     }
 
-    public function setUrl($url) {
+    public function setUrl($url)
+    {
         $this->urlRequested = $url;
         return $this;
     }
 
-    public function setBody($body) {
+    public function setBody($body)
+    {
         $this->body = $body;
         return $this;
     }
 
-    public function setFetchedFromCache($bool) {
+    public function setFetchedFromCache($bool)
+    {
         $this->fetchedFromCache = $bool;
         return $this;
     }
 
-    public function getUrl() {
+    public function getUrl()
+    {
         return $this->urlRequested;
     }
 
-    public function getBody() {
+    public function getBody()
+    {
         return $this->body;
     }
 
-    public function isFetchedFromCache() {
+    public function isFetchedFromCache()
+    {
         return $this->fetchedFromCache;
     }
 
-    public function remember($minutes) {
+    public function remember($minutes)
+    {
         if (!$this->fetchedFromCache) {
             $this->cache->set($this->urlRequested, $this->body, $minutes * 60);
         }
         return $this;
     }
 
-    public function __toString() {
+    public function __toString()
+    {
         return json_encode($this->body);
     }
-
 }

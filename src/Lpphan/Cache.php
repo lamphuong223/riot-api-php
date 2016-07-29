@@ -9,11 +9,12 @@ use Memcached;
  *
  * @author lamphuong
  */
-class Cache implements CacheInterface {
-
+class Cache implements CacheInterface
+{
     protected $memCache;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->memCache = new Memcached;
         $this->memCache->addserver('127.0.0.1', 11211, 100);
     }
@@ -24,7 +25,8 @@ class Cache implements CacheInterface {
      * @param string $key
      * @return mixed
      */
-    public function get($key) {
+    public function get($key)
+    {
         return $this->memCache->get($key);
     }
 
@@ -34,7 +36,8 @@ class Cache implements CacheInterface {
      * @param string $key
      * @return boolean
      */
-    public function has($key) {
+    public function has($key)
+    {
         return $this->memCache->get($key);
     }
 
@@ -43,7 +46,8 @@ class Cache implements CacheInterface {
      * 
      * @param string $key
      */
-    public function remove($key) {
+    public function remove($key)
+    {
         $this->memCache->delete($key);
     }
 
@@ -55,30 +59,9 @@ class Cache implements CacheInterface {
      * @param int $seconds
      * @return boolean
      */
-    public function set($key, $value, $seconds) {
+    public function set($key, $value, $seconds)
+    {
         return $this->memCache->set($key, $value, $seconds);
     }
-
-//    /**
-//     * If the cache has the key given return it, else add the value return in callable in to the cache under the given key
-//     * 
-//     * @param string $key
-//     * @param int $seconds
-//     * @param \LolApi\callable $callback
-//     * @return mixed
-//     * @throws \InvalidArgumentException
-//     */
-//    public function remember($key, $seconds, callable $callback) {
-//        if ($this->has($key)) {
-//            return $this->memCache->get($key);
-//        }
-//        
-//        if (!is_callable($callback)){
-//            throw new \InvalidArgumentException('Function not callable');
-//        }
-//        
-//        $value = call_user_func($callback);
-//        return $this->set($key, $value, $seconds);
-//    }
-
+    
 }

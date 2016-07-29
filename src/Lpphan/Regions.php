@@ -7,18 +7,18 @@ namespace Lpphan;
  *
  * @author lamphuong
  */
-class Regions {
-   
-    const BR = 'br';
-    const NA = 'na';
+class Regions
+{
+    const BR   = 'br';
+    const NA   = 'na';
     const EUNE = 'eune';
-    const EUW = 'euw';
-    const JP = 'jp';
-    const KR = 'kr';
-    const LAN = 'lan';
-    const LAS = 'las';
-    const OCE = 'oce';
-    const TR = 'tr';
-    const RU = 'ru';
-    
+    const EUW  = 'euw';
+    const JP   = 'jp';
+    const KR   = 'kr';
+    const LAN  = 'lan';
+    const LAS  = 'las';
+    const OCE  = 'oce';
+    const TR   = 'tr';
+    const RU   = 'ru';
+
 }

@@ -37,20 +37,11 @@ class ApiTest extends TestCase{
         
         $result1 = $method->invoke($chamM);
         $this->assertEquals('https://br.api.pvp.net/championmastery/location/BR1/player/',$result1);
-    }
-    
-    /**
-     * @expectedException \Lpphan\Exception\Http404Exception
-     */
-    public function testNotFound(){
-        $api = new RiotApi('test');
-        $summoner = $api->summonerApi();
-        
-        $summoner->getSummonerByNames(['dadsadhasd12']);
-    }
+    }   
     
     /**
      * @expectedException \Lpphan\Exception\Http403Exception
+     * @expectedExceptionCode 403
      */
     public function testInvalidKey(){
         $api = new RiotApi('key');

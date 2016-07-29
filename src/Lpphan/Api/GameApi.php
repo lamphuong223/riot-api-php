@@ -7,11 +7,12 @@ namespace Lpphan\Api;
  *
  * @author lamphuong
  */
-class GameApi extends AbstractApi {
-    
+class GameApi extends AbstractApi
+{
     protected $version = 'v1.3';
-    
-    public function getRecentGames($summonerId){
+
+    public function getRecentGames($summonerId)
+    {
         $path = "game/by-summoner/{$summonerId}/recent";
         return $this->makeRequest($path);
     }

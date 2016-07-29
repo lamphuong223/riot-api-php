@@ -7,8 +7,8 @@ namespace Lpphan;
  *
  * @author lamphuong
  */
-class RiotApi {
-
+class RiotApi
+{
     /**
      *
      * @var string
@@ -51,7 +51,8 @@ class RiotApi {
         'jp' => 'JP1'
     ];
 
-    public function __construct($apiKey, CacheInterface $cache = null) {
+    public function __construct($apiKey, CacheInterface $cache = null)
+    {
         $this->apiKey = $apiKey;
 
         if (is_null($cache)) {
@@ -59,25 +60,29 @@ class RiotApi {
         }
 
         $this->client = new HttpClient();
-        $this->cache = $cache;
+        $this->cache  = $cache;
     }
 
-    public function getApiKey() {
+    public function getApiKey()
+    {
         return $this->apiKey;
     }
 
-    public function setRegion($region) {
+    public function setRegion($region)
+    {
         if (!array_key_exists($region, self::$platformIds)) {
             throw new \InvalidArgumentException('Wrong region format');
         }
         $this->region = $region;
     }
 
-    public function getRegion() {
+    public function getRegion()
+    {
         return $this->region;
     }
 
-    public function setClient(ClientInterface $client) {
+    public function setClient(ClientInterface $client)
+    {
         if (!$client instanceof ClientInterface) {
             throw new \InvalidArgumentException('Client must be an instance of Lpphan\ClientInterface');
         }
@@ -85,11 +90,13 @@ class RiotApi {
         $this->client = $client;
     }
 
-    public function getClient() {
+    public function getClient()
+    {
         return $this->client;
     }
 
-    public function setCache(CacheInterface $cache) {
+    public function setCache(CacheInterface $cache)
+    {
         if (!$cache instanceof CacheInterface) {
             throw new \InvalidArgumentException('Cache must be an instance of Lpphan\ClientInterface');
         }
@@ -97,56 +104,69 @@ class RiotApi {
         $this->cache = $cache;
     }
 
-    public function getCache() {
+    public function getCache()
+    {
         return $this->cache;
     }
 
-    public function remember(Response $response, $minutes = 1) {
-        $this->cache->set($response->getUrl(), $response->getBody(), $minutes * 60);
+    public function remember(Response $response, $minutes = 1)
+    {
+        $this->cache->set($response->getUrl(), $response->getBody(),
+            $minutes * 60);
     }
 
-    public function summonerApi() {
+    public function summonerApi()
+    {
         return new Api\SummonerApi($this);
     }
 
-    public function championApi() {
+    public function championApi()
+    {
         return new Api\ChampionApi($this);
     }
 
-    public function championMastery() {
+    public function championMastery()
+    {
         return new Api\ChampionMasteryApi($this);
     }
 
-    public function currentGame() {
+    public function currentGame()
+    {
         return new Api\CurrentGameApi($this);
     }
 
-    public function game() {
+    public function game()
+    {
         return new Api\GameApi($this);
     }
 
-    public function league() {
+    public function league()
+    {
         return new Api\LeagueApi($this);
     }
 
-    public function match() {
+    public function match()
+    {
         return new Api\MatchApi($this);
     }
 
-    public function staticApi() {
+    public function staticApi()
+    {
         return new Api\StaticApi($this);
     }
 
-    public function stats() {
+    public function stats()
+    {
         return new Api\StatsApi($this);
     }
 
-    public function status() {
+    public function status()
+    {
         return new Api\StatusApi($this);
     }
 
-    public function team() {
+    public function team()
+    {
         return new Api\TeamApi($this);
     }
-
 }
