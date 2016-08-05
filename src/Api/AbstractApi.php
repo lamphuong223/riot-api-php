@@ -46,7 +46,6 @@ abstract class AbstractApi
     {
         $this->lolApi  = $lolApi;
         $this->baseUrl = $this->getBaseUrlWithRegion();
-        $this->lolApi->getClient()->setBaseUrl($this->baseUrl);
     }
 
     protected function getBaseUrlWithRegion()

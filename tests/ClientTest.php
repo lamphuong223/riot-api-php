@@ -14,7 +14,6 @@ class ClientTest extends TestCase{
         $api = new RiotApi('key');
         $client = $api->getClient();
         
-        $client->setBaseUrl('https://google.com');
         $res = $client->get('https://google.com');
         
         $code = $res->getStatusCode();

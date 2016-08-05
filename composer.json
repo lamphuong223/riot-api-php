@@ -2,7 +2,7 @@
     "name": "lpphan/riot-api",
     "type": "library",
     "description": "A simple wrapper for the League of Legends API.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "keywords": ["League of legends", "wrap", "api", "facade", "proxy","lol","riot"],
     "license": "MIT",
     "authors": [
@@ -19,8 +19,8 @@
         "phpunit/phpunit": "5.4.*"
     },
     "autoload": {
-        "psr-0": { 
-        	"Lpphan": "src/"
+        "psr-4": { 
+        	"Lpphan\\": "src/"
        	}
     }
 }

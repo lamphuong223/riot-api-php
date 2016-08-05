@@ -1,6 +1,6 @@
 ## League of Legends API wrapper in PHP
 
-Version 0.1.0
+Version 0.1.1
 
 ### Introduction
 

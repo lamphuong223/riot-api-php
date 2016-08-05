@@ -16,18 +16,14 @@ class HttpClient implements ClientInterface
      * @var Client
      */
     protected $guzzle;
+    
+    public function __construct()
+    {
+        $this->guzzle = new Client();
+    }
 
-    /**
-     * 
-     * @param string $url
-     */
     public function get($url)
     {
         return $this->guzzle->get($url);
-    }
-
-    public function setBaseUrl($baseUrl)
-    {
-        $this->guzzle = new Client(['base_uri' => $baseUrl]);
     }
 }
